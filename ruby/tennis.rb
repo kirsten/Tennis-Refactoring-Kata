@@ -7,7 +7,7 @@ class TennisGame1
     @p1points = 0
     @p2points = 0
   end
-        
+
   def won_point(playerName)
     if playerName == "player1"
       @p1points += 1
@@ -15,11 +15,11 @@ class TennisGame1
       @p2points += 1
     end
   end
-  
+
   def score
     result = ""
     tempScore=0
-    if (@p1points==@p2points)
+    if (points_are_equal?)
       result = {
           0 => "Love-All",
           1 => "Fifteen-All",
@@ -54,6 +54,10 @@ class TennisGame1
     end
     result
   end
+
+  def points_are_equal?
+    @p1points == @p2points
+  end
 end
 
 class TennisGame2
@@ -63,7 +67,7 @@ class TennisGame2
     @p1points = 0
     @p2points = 0
   end
-      
+
   def won_point(playerName)
     if playerName == @player1Name
       p1Score()
@@ -89,7 +93,7 @@ class TennisGame2
     if (@p1points==@p2points and @p1points>2)
         result = "Deuce"
     end
-    
+
     p1res = ""
     p2res = ""
     if (@p1points > 0 and @p2points==0)
