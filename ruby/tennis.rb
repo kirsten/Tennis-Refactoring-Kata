@@ -25,7 +25,7 @@ class TennisGame1
           1 => "Fifteen-All",
           2 => "Thirty-All",
       }.fetch(@p1points, "Deuce")
-    elsif (@p1points>=4 or @p2points>=4)
+    elsif (either_player_has_advantage?)
       minusResult = @p1points-@p2points
       if (minusResult==1)
         result ="Advantage player1"
@@ -55,6 +55,9 @@ class TennisGame1
     result
   end
 
+  def either_player_has_advantage?
+   @p1points>=4 or @p2points>=4
+  end
   def points_are_equal?
     @p1points == @p2points
   end
@@ -119,11 +122,11 @@ class TennisGame2
       if (@p2points==3)
         p2res = "Forty"
       end
-      
+
       p1res = "Love"
       result = p1res + "-" + p2res
     end
-    
+
     if (@p1points>@p2points and @p1points < 4)
       if (@p1points==2)
         p1res="Thirty"
@@ -184,7 +187,7 @@ class TennisGame2
   def p1Score
     @p1points +=1
   end
-  
+
   def p2Score
     @p2points +=1
   end
@@ -197,7 +200,7 @@ class TennisGame3
     @p1 = 0
     @p2 = 0
   end
-      
+
   def won_point(n)
     if n == @p1N
         @p1 += 1
@@ -205,7 +208,7 @@ class TennisGame3
         @p2 += 1
     end
   end
-  
+
   def score
     if (@p1 < 4 and @p2 < 4) and (@p1 + @p2 < 6)
       p = ["Love", "Fifteen", "Thirty", "Forty"]
