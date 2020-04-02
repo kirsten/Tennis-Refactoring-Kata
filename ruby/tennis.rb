@@ -27,7 +27,7 @@ class TennisGame1
       }.fetch(@p1points, "Deuce")
     elsif (either_player_has_advantage?)
       point_difference = @p1points-@p2points
-      if (point_difference==1)
+      if (player1_slight_advantage?(point_difference))
         result ="Advantage player1"
       elsif (point_difference ==-1)
         result ="Advantage player2"
@@ -55,6 +55,9 @@ class TennisGame1
     result
   end
 
+  def player1_slight_advantage? point_difference
+    point_difference == 1
+  end
   def either_player_has_advantage?
    @p1points>=4 or @p2points>=4
   end
