@@ -26,12 +26,12 @@ class TennisGame1
           2 => "Thirty-All",
       }.fetch(@p1points, "Deuce")
     elsif (either_player_has_advantage?)
-      minusResult = @p1points-@p2points
-      if (minusResult==1)
+      point_difference = @p1points-@p2points
+      if (point_difference==1)
         result ="Advantage player1"
-      elsif (minusResult ==-1)
+      elsif (point_difference ==-1)
         result ="Advantage player2"
-      elsif (minusResult>=2)
+      elsif (point_difference>=2)
         result = "Win for player1"
       else
         result ="Win for player2"
