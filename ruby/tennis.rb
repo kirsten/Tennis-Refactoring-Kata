@@ -29,11 +29,11 @@ class TennisGame1
       point_difference = @p1points-@p2points
       if (player1_slight_advantage?(point_difference))
         result ="Advantage player1"
-      elsif (point_difference ==-1)
+      elsif (player2_slight_advantage?(point_difference))
         result ="Advantage player2"
-      elsif (point_difference>=2)
+      elsif (player1_big_advantage?(point_difference))
         result = "Win for player1"
-      else
+      else (player1_big_advantage?(point_difference))
         result ="Win for player2"
       end
     else
@@ -53,6 +53,18 @@ class TennisGame1
       end
     end
     result
+  end
+
+  def player2_big_advantage? point_difference
+    point_difference>=-2
+  end
+
+  def player1_big_advantage? point_difference
+    point_difference>=2
+  end
+
+  def player2_slight_advantage? point_difference
+    point_difference ==-1
   end
 
   def player1_slight_advantage? point_difference
