@@ -79,13 +79,6 @@ class TennisGame1 < TennisGame
 end
 
 class TennisGame2 < TennisGame
-  def initialize(player1Name, player2Name)
-    @player1Name = player1Name
-    @player2Name = player2Name
-    @p1points = 0
-    @p2points = 0
-  end
-
   def won_point(playerName)
     if playerName == @player1Name
       @p1points += 1
