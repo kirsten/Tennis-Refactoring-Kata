@@ -20,11 +20,7 @@ class TennisGame1 < TennisGame
     result = ""
     tempScore=0
     if (points_are_equal?)
-      result = {
-          0 => "Love-All",
-          1 => "Fifteen-All",
-          2 => "Thirty-All",
-      }.fetch(@p1points, "Deuce")
+      result = points_are_equal
     elsif (either_player_has_advantage?)
       point_difference = @p1points-@p2points
       if (player1_slight_advantage?(point_difference))
@@ -53,6 +49,14 @@ class TennisGame1 < TennisGame
       end
     end
     result
+  end
+
+  def points_are_equal
+    {
+        0 => "Love-All",
+        1 => "Fifteen-All",
+        2 => "Thirty-All",
+    }.fetch(@p1points, "Deuce")
   end
 
   def player2_big_advantage? point_difference
