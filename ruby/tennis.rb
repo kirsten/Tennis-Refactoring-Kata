@@ -83,24 +83,21 @@ class TennisGame1 < TennisGame
 end
 
 class TennisGame2 < TennisGame
+  def points_are_equal?
+    @p1points == @p2points
+  end
+  def points_are_equal
+    {
+        0 => "Love-All",
+        1 => "Fifteen-All",
+        2 => "Thirty-All",
+    }.fetch(@p1points, "Deuce")
+  end
   def score
     result = ""
-    if (@p1points == @p2points and @p1points < 3)
-      if (@p1points==0)
-        result = "Love"
-      end
-      if (@p1points==1)
-        result = "Fifteen"
-      end
-      if (@p1points==2)
-        result = "Thirty"
-      end
-      result += "-All"
+    if (points_are_equal?)
+      result = points_are_equal
     end
-    if (@p1points==@p2points and @p1points>2)
-        result = "Deuce"
-    end
-
     p1res = ""
     p2res = ""
     if (@p1points > 0 and @p2points==0)
