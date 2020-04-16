@@ -5,9 +5,7 @@ class TennisGame
       @p1points = 0
       @p2points = 0
     end
-end
 
-class TennisGame1 < TennisGame
   def won_point(playerName)
     if playerName == @player1Name
       @p1points += 1
@@ -15,7 +13,9 @@ class TennisGame1 < TennisGame
       @p2points += 1
     end
   end
+end
 
+class TennisGame1 < TennisGame
   def score
     result = ""
     tempScore=0
