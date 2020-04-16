@@ -79,14 +79,6 @@ class TennisGame1 < TennisGame
 end
 
 class TennisGame2 < TennisGame
-  def won_point(playerName)
-    if playerName == @player1Name
-      @p1points += 1
-    else
-      @p2points += 1
-    end
-  end
-
   def score
     result = ""
     if (@p1points == @p2points and @p1points < 3)
