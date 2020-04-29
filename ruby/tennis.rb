@@ -13,6 +13,10 @@ class TennisGame
       @p2points += 1
     end
   end
+
+  def points_are_equal?
+    @p1points == @p2points
+  end
 end
 
 class TennisGame1 < TennisGame
