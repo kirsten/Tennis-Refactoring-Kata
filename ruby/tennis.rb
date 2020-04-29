@@ -81,15 +81,9 @@ class TennisGame1 < TennisGame
   def either_player_has_advantage?
    @p1points>=4 or @p2points>=4
   end
-  def points_are_equal?
-    @p1points == @p2points
-  end
 end
 
 class TennisGame2 < TennisGame
-  def points_are_equal?
-    @p1points == @p2points
-  end
   def points_are_equal
     {
         0 => "Love-All",
