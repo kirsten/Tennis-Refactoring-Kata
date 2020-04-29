@@ -17,6 +17,14 @@ class TennisGame
   def points_are_equal?
     @p1points == @p2points
   end
+
+  def points_are_equal
+    {
+        0 => "Love-All",
+        1 => "Fifteen-All",
+        2 => "Thirty-All",
+    }.fetch(@p1points, "Deuce")
+  end
 end
 
 class TennisGame1 < TennisGame
@@ -55,14 +63,6 @@ class TennisGame1 < TennisGame
     result
   end
 
-  def points_are_equal
-    {
-        0 => "Love-All",
-        1 => "Fifteen-All",
-        2 => "Thirty-All",
-    }.fetch(@p1points, "Deuce")
-  end
-
   def player2_big_advantage? point_difference
     point_difference>=-2
   end
@@ -84,13 +84,6 @@ class TennisGame1 < TennisGame
 end
 
 class TennisGame2 < TennisGame
-  def points_are_equal
-    {
-        0 => "Love-All",
-        1 => "Fifteen-All",
-        2 => "Thirty-All",
-    }.fetch(@p1points, "Deuce")
-  end
   def score
     result = ""
     if (points_are_equal?)
