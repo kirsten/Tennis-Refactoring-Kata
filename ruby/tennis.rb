@@ -196,12 +196,12 @@ class TennisGame3 < TennisGame
         "Deuce"
       else
         advantagedPlayer = @p1points > @p2points ? @player1Name : @player2Name
-        ahead_by_two_points? ? "Advantage " + advantagedPlayer  : "Win for " + advantagedPlayer
+        ahead_by_two_points? ? "Win for " + advantagedPlayer : "Advantage " + advantagedPlayer
       end
     end
   end
 
   def ahead_by_two_points?
-    return (@p1points-@p2points)*(@p1points-@p2points) == 1
+    (@p1points-@p2points).abs > 1
   end
 end
