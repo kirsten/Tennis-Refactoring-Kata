@@ -189,8 +189,8 @@ class TennisGame3 < TennisGame
   def score
     if (@p1points < 4 and @p2points < 4) and (@p1points + @p2points < 6)
       pointNames = ["Love", "Fifteen", "Thirty", "Forty"]
-      s = pointNames[@p1points]
-      @p1points == @p2points ? s + "-All" : s + "-" + pointNames[@p2points]
+      scoreTranslation = pointNames[@p1points]
+      @p1points == @p2points ? scoreTranslation + "-All" : scoreTranslation + "-" + pointNames[@p2points]
     else
       if (@p1points == @p2points)
         "Deuce"
